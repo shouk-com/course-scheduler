@@ -46,12 +46,12 @@ function App() {
     return (
         <div className="App">
             <div id='selection-box'>
-                <div id='searchbar'>
+                <div id='choose-div'>
                     <nav>
-                        <form>
+                        <form id='searchbar'>
                             <input type="text" placeholder="Search" onChange={(e) => updateSearchText(e.target.value)} />
                         </form>
-                        <ul id='all-courses'>
+                        <ul id='all-courses' >
                             {
                                 TTJSON.map((owo, key) => {
                                     if (chosenCourses.find((course) => owo.commonCode === course.commonCode) || !owo.courseNumber.includes(searchText))
@@ -66,7 +66,7 @@ function App() {
                         </ul>
                     </nav>
                 </div>
-                <div>
+                <div id='chosen-div'>
                     <nav>
                         Chosen Courses
                         <ul id='chosen-courses'>
@@ -86,10 +86,12 @@ function App() {
 
 
             </div>
+            <div id='timetable-box'>
+                <TimeTable
+                    courses={chosenCourseSections}
+                    chosenCourses={chosenCourses}></TimeTable>
+            </div>
 
-            <TimeTable
-                courses={chosenCourseSections}
-                chosenCourses={chosenCourses}></TimeTable>
         </div>
     );
 }

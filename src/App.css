@@ -1,7 +1,11 @@
 .App {
     text-align: center;
-    display: inline;
-    width: 85%;
+    display: block;
+    margin: auto;
+    width: 90%;
+    margin-top: 5%;
+    padding: 2%;
+    background-color: rgb(255, 171, 35);
 }
 
 #selection-box {
@@ -12,7 +16,7 @@
 }
 
 #searchbar {
-    margin: 0;
+    margin: 1%;
 }
 
 #buttonremadd {
@@ -23,6 +27,24 @@
 #chosen-courses li::marker {
     color: red;
     color: hsl(30, 100, 50);
+}
+
+#all-courses li {
+    display: list-item;
+    align-content: flex-start;
+}
+
+#timetable-box {
+    margin-top: 5%;
+}
+
+button.delete-button {
+    width: 5%;
+    height: 100%;
+    background-color: red;
+    color: red;
+    align-self: start;
+
 }
 
 table,
@@ -47,6 +69,10 @@ nav ul {
 nav ul {
     overflow: hidden;
     overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 li:hover {

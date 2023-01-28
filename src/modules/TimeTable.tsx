@@ -4,8 +4,8 @@ import { Course, CourseSection } from "../services/datamod";
 function TimeTable(props: { courses: CourseSection[], chosenCourses: Course[] }) {
     return (
         <div>
-            <table>
-                <tbody>
+            <table className="">
+                <tbody >
                     {
                         eventListJSX(convertSectionsToEventList(props.courses), props.chosenCourses)
                     }

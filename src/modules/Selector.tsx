@@ -22,7 +22,8 @@ function Selector(props: {
                 props.sections.map((section, key) => {
                     return <option
                         key={section.instructor + section.timings.toLocaleString() + key}
-                        value={section.instructor + section.timings.toLocaleString()}>{section.secNumber}</option>
+                        value={section.instructor + section.timings.toLocaleString()}
+                    >{section.secNumber}</option>
                 })
             }</select>)
 }
