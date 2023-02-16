@@ -8,7 +8,7 @@ import ChosenCourse from './modules/ChosenCourse';
 function App() {
     const [chosenCourseSections, updateChosenCourseSections] = useState<CourseSection[]>([]);
     const [chosenCourses, updateChosenCourses] = useState<Course[]>([]);
-    const [searchText, updateSearchText] = useState<string>("")
+    const [searchText, updateSearchText] = useState<string>("");
 
     function deleteChosenCourse(courseToBeRemoved: Course, chosenCourses: Course[], chosenCourseSections: CourseSection[]) {
         updateChosenCourses(chosenCourses.filter((course) => course.commonCode !== courseToBeRemoved.commonCode))
@@ -26,7 +26,7 @@ function App() {
         updateChosenCourseSections(
             chosenSections.map((courseSection) => {
                 if (courseSection.course !== courseOfSectionToBeUpdated)
-                    return courseSection
+                    return courseSection;
                 return {
                     course: courseOfSectionToBeUpdated,
                     lectureIndex: isLecture ?
@@ -38,8 +38,8 @@ function App() {
                         (courseOfSectionToBeUpdated.practicalSections ? courseOfSectionToBeUpdated.practicalSections.findIndex((a) => {
                             return a.instructor + a.timings.toLocaleString() === value
                         }) : 0)
-                        : courseSection.lectureIndex
-                }
+                        : courseSection.practicalIndex
+                };
             })
         )
     }
@@ -54,7 +54,7 @@ function App() {
                         <ul id='all-courses' >
                             {
                                 TTJSON.map((owo, key) => {
-                                    if (chosenCourses.find((course) => owo.commonCode === course.commonCode) || !owo.courseNumber.includes(searchText))
+                                    if (chosenCourses.find((course) => owo.commonCode === course.commonCode) || !owo.courseNumber.includes(searchText.toUpperCase()))
                                         return;
                                     return (
                                         <li
