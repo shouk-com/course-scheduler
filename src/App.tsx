@@ -45,6 +45,7 @@ function App() {
     }
     return (
         <div className="App">
+            <div><h1>Course timetable thing(dev)</h1></div>
             <div id='selection-box'>
                 <div id='choose-div'>
                     <nav>

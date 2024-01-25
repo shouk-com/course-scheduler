@@ -30,8 +30,7 @@ function eventListJSX(EventList: CourseSection[][][], chosenCourses: Course[]) {
                                 let index = chosenCourses.findIndex((a) => a.courseNumber === Event.course.courseNumber)
                                 return (<div
                                     key={Event.course.name + PeriodNumber + " " + DayNumber}
-                                    color={"Red"}
-                                    className={index + ""}
+                                    className={"td-elem"}
                                 >{Event.course.name}</div>)
                             })}</td>)
                         })

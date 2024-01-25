@@ -2,16 +2,21 @@
     text-align: center;
     display: block;
     margin: auto;
-    margin-top: 5%;
-    padding: 2%;
     background-color: rgb(255, 171, 35);
 }
 
 #selection-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 85%;
+    display: flex;
     margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2%;
+    align-items: flex-start;
+}
+
+#choose-div, #chosen-div{
+    padding: inherit;
 }
 
 #searchbar {
@@ -21,6 +26,11 @@
 #buttonremadd {
     display: grid;
     margin: 30%;
+}
+
+#chosen-courses li {
+    display: list-item;
+    align-content: flex-start;
 }
 
 #chosen-courses li::marker {
@@ -37,6 +47,9 @@
     font-size: 1em;
     margin-top: 5%;
     overflow-x: auto;
+}
+.td-elem{
+    overflow: hidden;
 }
 
 button.delete-button {
