@@ -10,7 +10,13 @@ export interface Course {
     courseNumber: string,
     hasPractical: boolean,
     lectureSections?: Section[],
-    practicalSections?: Section[]
+    practicalSections?: Section[],
+    examTimings?: ExamTimings
+}
+
+export interface ExamTimings {
+    midsem?: string,
+    compre?: string
 }
 
 export interface Section {
@@ -23,10 +29,13 @@ export interface Section {
 const COMMMONCODE = 0;
 const COURSENUMBER = 1;
 const COURSENAME = 2;
+const LPU = 3;
 const SECTIONNUMBER = 4;
 const INSTRUCTOR = 5;
 const ROOMNUMBER = 6;
 const TIMINGS = 7;
+const MIDSEM = 8;
+const COMPRE = 9;
 
 export function parseTTContent(data: string) {
     let lineWiseData = data.split('\n');
@@ -43,8 +52,14 @@ export function parseTTContent(data: string) {
             courseNumber: tableData[index][COURSENUMBER],
             hasPractical: false,
         })
+        console.log(index + 1);
         let lines = 1, sectionLineNumber = 1;
         let hasPractical = false, practicalLineNumber = 0;
+        /**
+         * Loop finds number of lines under current course and stores them in lines.
+         * Loop also checks for practicals in the current course and stores the line
+         * where practicals start.
+         */
         for (let i = index + 1; i < tableData.length; i++) {
             if (tableData[i][COMMMONCODE].length != 0)
                 break;
@@ -72,8 +87,20 @@ export function parseTTContent(data: string) {
                     index,
                     lines - practicalLineNumber + 1,
                     practicalLineNumber
-                )
+                );
         }
+
+        let examDates: ExamTimings = {};
+        if (tableData[index][MIDSEM].length > 0) {
+            examDates.midsem = tableData[index][MIDSEM];
+        }
+        if (tableData[index][COMPRE].length > 0) {
+            examDates.compre = tableData[index][COMPRE];
+        }
+        if (examDates.compre !== undefined || examDates.midsem !== undefined) {
+            Courses[currCourseIndex].examTimings = examDates;
+        }
+
         currCourseIndex++;
         index = index + lines - 1;
     }

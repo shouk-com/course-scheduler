@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import TimeTable from './modules/TimeTable';
 import { Course, CourseSection } from './services/datamod';
-import TTJSON from './db/tt.json'
+import TTJSON from './db/ttv.json'
 import ChosenCourse from './modules/ChosenCourse';
 
 function App() {

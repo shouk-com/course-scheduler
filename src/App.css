@@ -2,7 +2,6 @@
     text-align: center;
     display: block;
     margin: auto;
-    width: 90%;
     margin-top: 5%;
     padding: 2%;
     background-color: rgb(255, 171, 35);
@@ -37,6 +36,7 @@
 #timetable-box {
     font-size: 1em;
     margin-top: 5%;
+    overflow-x: auto;
 }
 
 button.delete-button {
