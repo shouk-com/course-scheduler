@@ -1,6 +1,13 @@
 import * as fs from 'fs';
 import { parseTTContent } from "./datamod";
 
-let CSVdata = fs.readFileSync("../db/ttv.csv", "utf-8");
+/**
+ * Edit the csv and json destinations before you execute
+ */
+const inputfile = "../db/ttv.csv";
+const outputfile = "../db/ttv.json";
 
-fs.writeFileSync("../db/ttv.json", parseTTContent(CSVdata));
+
+let CSVdata = fs.readFileSync(inputfile, "utf-8");
+
+fs.writeFileSync(outputfile, parseTTContent(CSVdata));
