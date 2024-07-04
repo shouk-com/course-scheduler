@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Course Scheduler
+
+React course Scheduler for a simplified process in timetable creation.
+
+Data processing is done by extracting data from pdf into a CSV, sanitization is done manually as fields are relatively small.
+You can find more at [src/services](https://github.com/shouk-com/course-scheduler/tree/master/src/services).
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
